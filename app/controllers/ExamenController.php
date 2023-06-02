@@ -12,6 +12,6 @@ class ExamenController extends BaseController
             'examens' => $examens
         ];
 
-        $this->view('examen/index', $data);
+        $this->view('Instructeur/index', $data);
     }
 }

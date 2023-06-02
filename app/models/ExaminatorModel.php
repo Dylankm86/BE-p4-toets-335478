@@ -13,8 +13,8 @@ class ExaminatorModel
     {
         $query = "SELECT * FROM Examinator";
 
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->db->query($query);
+        return $this->db->resultSet();
     }
 }
