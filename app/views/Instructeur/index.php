@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,23 @@
     <link rel="stylesheet" href="<?= URLROOT; ?>/css/style.css">
     <title>Instructeurs</title>
 </head>
+
 <body>
     <u><?= $data['title']; ?></u>
 
     <table border='1'>
         <thead>
-            <th>Voornaam</th>
-            <th>Tussenvoegsel</th>
-            <th>Achternaam</th>
-            <th>Mobiel</th>
-            <th>Datum in dienst</th>
-            <th>Aantal sterren</th>
-            <th>Voertuigen</th>
+            <th>naam examinator</th>
+            <th>Datum examen</th>
+            <th>Rijbewijscatogorie</th>
+            <th>Rijschool</th>
+            <th>Stad</th>
+            <th>uitslag examen</th>
         </thead>
         <tbody>
-            
+
         </tbody>
     </table>
 </body>
+
 </html>
-
-
