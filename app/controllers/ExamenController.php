@@ -1,13 +1,11 @@
 <?php
 
-
-
-class InstructeurController extends BaseController
+class ExamenController extends BaseController
 {
     public function index()
     {
-
-        $examenModel = new ExamenModel();
+        $db = new Database();
+        $examenModel = new ExamenModel($db);
         $examens = $examenModel->getExamens();
 
         $data = [
@@ -15,6 +13,6 @@ class InstructeurController extends BaseController
             'examens' => $examens
         ];
 
-        $this->view('instructeur/index', $data);
+        $this->view('examen/index', $data);
     }
 }
