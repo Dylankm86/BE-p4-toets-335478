@@ -1,23 +1,17 @@
 <?php
 
-class Instructeur extends BaseController
+
+
+class InstructeurController extends Controller
 {
-    private $instructeurModel;
-
-    public function __construct()
-    {
-        $this->instructeurModel = $this->model('InstructeurModel');
-    }
-
-
     public function index()
     {
-        $result  = $this->instructeurModel->getInstructeurs();
-
-        var_dump($result);
+        $examenModel = new ExamenModel();
+        $examens = $examenModel->getExamens();
 
         $data = [
-            'title' => 'Instructeurs in dienst'
+            'title' => 'Overzicht afgenomen examen examinatoren',
+            'examens' => $examens
         ];
 
         $this->view('instructeur/index', $data);
