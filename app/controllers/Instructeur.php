@@ -2,10 +2,11 @@
 
 
 
-class InstructeurController extends Controller
+class InstructeurController extends BaseController
 {
     public function index()
     {
+
         $examenModel = new ExamenModel();
         $examens = $examenModel->getExamens();
 
