@@ -4,9 +4,9 @@ class ExamenModel
 {
     private $db;
 
-    public function __construct($db)
+    public function __construct()
     {
-        $this->db = $db;
+        $this->db = new Database();
     }
 
     public function getExamens()
@@ -15,8 +15,7 @@ class ExamenModel
                   FROM Examen e
                   INNER JOIN Examinator ex ON e.ExaminatorId = ex.Id";
 
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->db->query($query);
+        return $this->db->resultSet();
     }
 }

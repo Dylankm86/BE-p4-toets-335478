@@ -4,12 +4,11 @@ class ExamenController extends BaseController
 {
     public function index()
     {
-        $db = new Database();
-        $examenModel = new ExamenModel($db);
+        $examenModel = $this->model('ExamenModel');
         $examens = $examenModel->getExamens();
 
         $data = [
-            'title' => 'Overzicht afgenomen examen examinatoren',
+            'title' => 'Overzicht afgenomen examens',
             'examens' => $examens
         ];
 

@@ -13,7 +13,7 @@
 
 <body>
     <h1>Welkom op de Homepagina</h1>
-    <a href="<?= URLROOT; ?>/instructeur/index">Ga naar het overzicht van afgenomen examens</a>
+    <a href="<?= URLROOT; ?>/ExamenController/index">Ga naar het overzicht van afgenomen examens</a>
 </body>
 
 </html>
