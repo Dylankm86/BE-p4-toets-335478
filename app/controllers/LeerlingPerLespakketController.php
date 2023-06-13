@@ -1,23 +1,16 @@
 <?php
 
-class LeerlingPerLespakketController extends BaseController
+class LeerlingPerLespakketModel
 {
-    private $leerlingPerLespakketModel;
-
-    public function __construct()
+    public function getAllData()
     {
-        $this->leerlingPerLespakketModel = $this->model('LeerlingPerLespakketModel');
-    }
-
-    public function index()
-    {
-        $data = $this->leerlingPerLespakketModel->getAllData();
-
-        $data = [
-            'title' => 'Leerling per Lespakket',
-            'data' => $data
-        ];
-
-        $this->view('leerlingperlespakket/index', $data);
+        try {
+            $query = "SELECT leerling.naam, leerling.mobiel, lespaket.pakketnaam, lespaket.aantallessen, lespaket.prijs, leerlingperlespakket.startdatumrijlessen, leerlingperlespakket.datumrijbewijsgehaald
+                      FROM leerlingperlespakket
+                      JOIN lespaket ON lespaket.id = leerlingperlespakket.lespakketid
+                      JOIN leerling ON leerling.id = leerlingperlespakket.leerlingid";
+        } catch (PDOException $e) {
+            die("Databasefout: " . $e->getMessage());
+        }
     }
 }

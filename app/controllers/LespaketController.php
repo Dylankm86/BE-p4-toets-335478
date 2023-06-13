@@ -1,23 +1,25 @@
 <?php
 
-class LespaketController extends BaseController
+class LeerlingPerLespakketController extends BaseController
 {
-    private $lespaketModel;
+    private $model;
 
     public function __construct()
     {
-        $this->lespaketModel = $this->model('LespaketModel');
+        $this->model = $this->model('LeerlingPerLespakketModel');
     }
 
     public function index()
     {
-        $lespaketten = $this->lespaketModel->getAllData();
-
         $data = [
-            'title' => 'Lespakketten',
-            'lespaketten' => $lespaketten
+            'leerlingperlespakket' => $this->model->getAllData()
         ];
 
-        $this->view('lespaket/index', $data);
+        $this->view('leerlingperlespakket/index', $data);
+    }
+
+    public function getAllData()
+    {
+        return $this->model->getAllData();
     }
 }
