@@ -1,7 +1,14 @@
-<?php
+<?php 
 
 class LeerlingPerLespakketModel
 {
+    private $db;
+
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
+
     public function getAllData()
     {
         try {
@@ -10,9 +17,11 @@ class LeerlingPerLespakketModel
                       JOIN lespaket ON lespaket.id = leerlingperlespakket.lespakketid
                       JOIN leerling ON leerling.id = leerlingperlespakket.leerlingid";
 
-            // Voer de query uit en haal de resultaten op
-            // Hier moet je de code plaatsen om de query uit te voeren en de resultaten op te halen
-            // $results = ... (de resultaten van de query)
+            // Voer de query uit
+            $stmt = $this->db->query($query);
+
+            // Haal de resultaten op
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             // Retourneer de resultaten van de query
             return $results;
