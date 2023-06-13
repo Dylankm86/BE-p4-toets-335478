@@ -16,6 +16,9 @@ class LeerlingPerLespakketController extends BaseController
         ];
 
         $this->view('leerlingperlespakket/index', $data);
+
+        // Retourneer de gegevens voor gebruik in andere delen van de applicatie
+        return $data;
     }
 
     public function getAllData()
